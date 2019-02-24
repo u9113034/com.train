@@ -3,12 +3,24 @@ package com.train
 import java.util.*
 
 fun main(args: Array<String>) {
+    var tmp: Int = 0
+    var sumOfTicket: Int = 0
+    var sumOfRTTickets: Int = 0
+
     val scanner =Scanner(System.`in`)
-    print("Please enter number of tickets: ")
-    var numberOfTickets = scanner.nextInt()
-    print("How many round-trip tickets: ")
-    var numberOfRTTickets = scanner.nextInt()
-    val tic = Ticket2(numberOfTickets, numberOfRTTickets)
+    do {
+        print("Please enter number of tickets: ")
+        tmp = scanner.nextInt()
+        if (tmp != -1) {
+            sumOfTicket += tmp
+        } else { break }
+        print("How many round-trip tickets: ")
+        tmp = scanner.nextInt()
+        if (tmp != -1) {
+            sumOfRTTickets += tmp
+        } else { break }
+    } while (true)
+    val tic = Ticket2(sumOfTicket, sumOfRTTickets)
     tic.print()
 }
 
